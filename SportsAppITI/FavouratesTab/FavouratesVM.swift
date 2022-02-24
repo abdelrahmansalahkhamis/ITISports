@@ -34,7 +34,7 @@ extension FavouratesVM{
     var name: String{
         return self.sportItem.strSport
     }
-    var strFormat: StrFormat{
+    var strFormat: String{
         return self.sportItem.strFormat
     }
     

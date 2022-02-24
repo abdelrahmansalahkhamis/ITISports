@@ -8,30 +8,25 @@
 import Foundation
 
 
-//struct Welcome: Codable {
-//    let sports: [Sport]
-//}
+
+
+struct AllSports: Codable {
+    let sports: [Sport]
+}
 
 // MARK: - Sport
 struct Sport: Codable {
-    let idSport, strSport: String
-    let strFormat: StrFormat
+    let idSport, strSport, strFormat: String
     let strSportThumb: String
     let strSportIconGreen: String
     let strSportDescription: String
 }
-
-enum StrFormat: String, Codable {
-    case eventSport = "EventSport"
-    case teamvsTeam = "TeamvsTeam"
-}
-
-
 extension Sport{
-    static var allSports: Resource<[Sport]> = {
+    
+    static var allSports: Resource<AllSports> = {
         guard let url = URL(string: URLs.allSports) else{
             fatalError("URL Incorrect")
         }
-        return Resource<[Sport]>(url: url)
+        return Resource<AllSports>(url: url)
     }()
 }

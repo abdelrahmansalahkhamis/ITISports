@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SportsCell" rowHeight="328" id="KGk-i7-Jjw" customClass="SportsCell" customModule="SportsAppITI" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="313" height="328"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="313" height="328"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Au-74-wJe">
+                        <rect key="frame" x="0.0" y="0.0" width="313" height="328"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="AxB-GQ-36A">
+                                <rect key="frame" x="0.0" y="1" width="313" height="325.5"/>
+                                <color key="tintColor" systemColor="systemYellowColor"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sport" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glc-T1-uWG">
+                                <rect key="frame" x="0.0" y="273" width="313" height="55"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="WEP-b0-0dP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="glc-T1-uWG" secondAttribute="bottom" id="0Cs-PV-C05"/>
+                            <constraint firstItem="glc-T1-uWG" firstAttribute="leading" secondItem="8Au-74-wJe" secondAttribute="leading" id="5uj-MN-eq9"/>
+                            <constraint firstItem="AxB-GQ-36A" firstAttribute="leading" secondItem="8Au-74-wJe" secondAttribute="leading" id="JAw-fg-Koy"/>
+                            <constraint firstItem="glc-T1-uWG" firstAttribute="trailing" secondItem="AxB-GQ-36A" secondAttribute="trailing" id="NN7-rf-H8j"/>
+                            <constraint firstAttribute="trailing" secondItem="AxB-GQ-36A" secondAttribute="trailing" id="OR9-Mz-QE2"/>
+                            <constraint firstAttribute="bottom" secondItem="AxB-GQ-36A" secondAttribute="bottom" id="gSv-eU-IOm"/>
+                            <constraint firstItem="AxB-GQ-36A" firstAttribute="top" secondItem="8Au-74-wJe" secondAttribute="top" id="iBh-Qf-jck"/>
+                            <constraint firstAttribute="trailing" secondItem="glc-T1-uWG" secondAttribute="trailing" id="scs-IB-pk7"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="8Au-74-wJe" secondAttribute="bottom" id="0dZ-Lz-Qtg"/>
+                    <constraint firstItem="8Au-74-wJe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="F5U-pG-eyy"/>
+                    <constraint firstItem="8Au-74-wJe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="WIs-uN-NRL"/>
+                    <constraint firstAttribute="trailing" secondItem="8Au-74-wJe" secondAttribute="trailing" id="jLT-Lg-EyC"/>
+                </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                        <integer key="value" value="15"/>
+                    </userDefinedRuntimeAttribute>
+                    <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
+                </userDefinedRuntimeAttributes>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="sportImg" destination="AxB-GQ-36A" id="Gjz-HI-kUu"/>
+                <outlet property="sportTitle" destination="glc-T1-uWG" id="vuW-Dx-iRD"/>
+            </connections>
+            <point key="canvasLocation" x="181.8840579710145" y="145.98214285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="folder.fill" catalog="system" width="128" height="97"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
