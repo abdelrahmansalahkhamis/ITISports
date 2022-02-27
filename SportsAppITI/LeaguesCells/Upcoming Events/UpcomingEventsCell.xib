@@ -10,24 +10,44 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="UpcomingEventsCell" customModule="SportsAppITI" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="250" height="150"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UpcomingEventsCell" id="gTV-IL-0wX" customClass="UpcomingEventsCell" customModule="SportsAppITI" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="250" height="200"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="250" height="150"/>
+                <rect key="frame" x="0.0" y="0.0" width="250" height="200"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ciH-hs-myx">
-                        <rect key="frame" x="0.0" y="0.0" width="250" height="150"/>
+                        <rect key="frame" x="5" y="0.0" width="240" height="200"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQR-N0-OZg">
-                                <rect key="frame" x="79" y="16" width="92" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Nh1-vA-5Vt">
+                                <rect key="frame" x="74" y="12" width="92" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQR-N0-OZg">
+                                        <rect key="frame" x="0.0" y="0.0" width="92" height="33.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="vs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRB-Pr-IYZ">
+                                        <rect key="frame" x="37.5" y="33.5" width="17" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Southampt" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1pn-k0-xrB">
+                                        <rect key="frame" x="4" y="66.5" width="84" height="33.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="JOF-Oj-ACr"/>
+                                </constraints>
+                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hXG-is-LUD">
-                                <rect key="frame" x="17" y="74" width="79" height="45.5"/>
+                                <rect key="frame" x="8" y="132" width="79" height="45.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icb-My-93M">
                                         <rect key="frame" x="0.0" y="0.0" width="79" height="19.5"/>
@@ -44,12 +64,12 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
                         <constraints>
-                            <constraint firstItem="hXG-is-LUD" firstAttribute="top" secondItem="kQR-N0-OZg" secondAttribute="bottom" constant="37.5" id="3le-nE-9OB"/>
-                            <constraint firstItem="kQR-N0-OZg" firstAttribute="top" secondItem="ciH-hs-myx" secondAttribute="top" constant="16" id="E1o-NE-0EH"/>
-                            <constraint firstItem="hXG-is-LUD" firstAttribute="leading" secondItem="ciH-hs-myx" secondAttribute="leading" constant="17" id="oi7-DI-MO0"/>
-                            <constraint firstItem="kQR-N0-OZg" firstAttribute="centerX" secondItem="ciH-hs-myx" secondAttribute="centerX" id="piH-jk-Mlp"/>
+                            <constraint firstItem="hXG-is-LUD" firstAttribute="leading" secondItem="ciH-hs-myx" secondAttribute="leading" constant="8" id="EGD-9u-8QO"/>
+                            <constraint firstItem="Nh1-vA-5Vt" firstAttribute="centerX" secondItem="ciH-hs-myx" secondAttribute="centerX" id="FYm-uY-Txg"/>
+                            <constraint firstItem="hXG-is-LUD" firstAttribute="top" secondItem="Nh1-vA-5Vt" secondAttribute="bottom" constant="20" id="NKP-XP-qWI"/>
+                            <constraint firstItem="Nh1-vA-5Vt" firstAttribute="top" secondItem="ciH-hs-myx" secondAttribute="top" constant="12" id="yNM-H9-6C7"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -57,21 +77,22 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="ciH-hs-myx" secondAttribute="bottom" id="5i3-at-OKt"/>
-                <constraint firstAttribute="trailing" secondItem="ciH-hs-myx" secondAttribute="trailing" id="WXn-VG-yay"/>
+                <constraint firstAttribute="trailing" secondItem="ciH-hs-myx" secondAttribute="trailing" constant="5" id="WXn-VG-yay"/>
                 <constraint firstItem="ciH-hs-myx" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="a6U-RY-YiD"/>
-                <constraint firstItem="ciH-hs-myx" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="hSM-qR-MKR"/>
+                <constraint firstItem="ciH-hs-myx" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="hSM-qR-MKR"/>
             </constraints>
             <connections>
                 <outlet property="eventDate" destination="Icb-My-93M" id="ddh-6c-gmU"/>
-                <outlet property="eventName" destination="kQR-N0-OZg" id="2n7-9T-PyB"/>
                 <outlet property="eventTime" destination="x8q-dY-obs" id="EmC-mx-zXi"/>
+                <outlet property="firstTeam" destination="kQR-N0-OZg" id="6DX-1A-A11"/>
+                <outlet property="secondTeam" destination="1pn-k0-xrB" id="OUT-LM-l9M"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="99.776785714285708"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

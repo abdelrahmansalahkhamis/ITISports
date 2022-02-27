@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		217DE9FC28FA4685A76178B5 /* Pods_SportsAppITI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8D5A7D0CB54CF40B334ABDD /* Pods_SportsAppITI.framework */; };
+		A401E5E827CB966E00F768F1 /* LatestResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A401E5E627CB966E00F768F1 /* LatestResultTableViewCell.swift */; };
+		A401E5E927CB966E00F768F1 /* LatestResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A401E5E727CB966E00F768F1 /* LatestResultTableViewCell.xib */; };
 		A405A9A227C6C316002698D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A405A9A127C6C316002698D5 /* AppDelegate.swift */; };
 		A405A9A427C6C316002698D5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A405A9A327C6C316002698D5 /* SceneDelegate.swift */; };
 		A405A9A927C6C316002698D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A405A9A727C6C316002698D5 /* Main.storyboard */; };
@@ -42,6 +44,8 @@
 
 /* Begin PBXFileReference section */
 		8B8A46D97B952CBCF83CC85D /* Pods-SportsAppITI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportsAppITI.debug.xcconfig"; path = "Target Support Files/Pods-SportsAppITI/Pods-SportsAppITI.debug.xcconfig"; sourceTree = "<group>"; };
+		A401E5E627CB966E00F768F1 /* LatestResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestResultTableViewCell.swift; sourceTree = "<group>"; };
+		A401E5E727CB966E00F768F1 /* LatestResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LatestResultTableViewCell.xib; sourceTree = "<group>"; };
 		A405A99E27C6C316002698D5 /* SportsAppITI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportsAppITI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A405A9A127C6C316002698D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A405A9A327C6C316002698D5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +109,15 @@
 				C8D5A7D0CB54CF40B334ABDD /* Pods_SportsAppITI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A401E5E527CB963900F768F1 /* LatestResultTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A401E5E627CB966E00F768F1 /* LatestResultTableViewCell.swift */,
+				A401E5E727CB966E00F768F1 /* LatestResultTableViewCell.xib */,
+			);
+			path = LatestResultTableViewCell;
 			sourceTree = "<group>";
 		};
 		A405A99527C6C316002698D5 = {
@@ -268,6 +281,7 @@
 		A4D5094327CAD31F00B07A25 /* Latest Results */ = {
 			isa = PBXGroup;
 			children = (
+				A401E5E527CB963900F768F1 /* LatestResultTableViewCell */,
 				A4D5094427CAD34400B07A25 /* LatestResultsCell.swift */,
 				A4D5094527CAD34400B07A25 /* LatestResultsCell.xib */,
 			);
@@ -346,6 +360,7 @@
 				A405A9B127C6C318002698D5 /* LaunchScreen.storyboard in Resources */,
 				A405A9AE27C6C318002698D5 /* Assets.xcassets in Resources */,
 				A4D5094C27CAD36C00B07A25 /* TeamsCell.xib in Resources */,
+				A401E5E927CB966E00F768F1 /* LatestResultTableViewCell.xib in Resources */,
 				A45E7B4127C6CE1F0083C134 /* SportsCell.xib in Resources */,
 				A4D5093827CAB4AD00B07A25 /* HeaderView.xib in Resources */,
 				A4D5094227CAD2FC00B07A25 /* UpcomingEventsCell.xib in Resources */,
@@ -413,6 +428,7 @@
 				A45AB1D927C77EAB0066F777 /* URLs.swift in Sources */,
 				A4D5093127CA8DFD00B07A25 /* LeaguesDetailsVC.swift in Sources */,
 				A4D5094B27CAD36C00B07A25 /* TeamsCell.swift in Sources */,
+				A401E5E827CB966E00F768F1 /* LatestResultTableViewCell.swift in Sources */,
 				A45E7B3C27C6CB4F0083C134 /* FavouratesVM.swift in Sources */,
 				A4D5094627CAD34400B07A25 /* LatestResultsCell.swift in Sources */,
 				A45E7B3A27C6CB3E0083C134 /* FavouratesVC.swift in Sources */,

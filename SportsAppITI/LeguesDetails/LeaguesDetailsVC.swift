@@ -7,6 +7,8 @@
 
 import UIKit
 
+// https://lickability.com/blog/getting-started-with-uicollectionviewcompositionallayout/
+
 class LeaguesDetailsVC: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -15,6 +17,9 @@ class LeaguesDetailsVC: UIViewController {
 
         // Do any additional setup after loading the view.
         collectionView.register(UINib(nibName: "HeaderView", bundle: nil), forSupplementaryViewOfKind: "header", withReuseIdentifier: "HeaderView")
+        collectionView.register(UINib(nibName: "UpcomingEventsCell", bundle: nil), forCellWithReuseIdentifier: UpcomingEventsCell.identifier)
+        collectionView.register(UINib(nibName: "LatestResultsCell", bundle: nil), forCellWithReuseIdentifier: LatestResultsCell.identifier)
+        collectionView.register(UINib(nibName: "TeamsCell", bundle: nil), forCellWithReuseIdentifier: TeamsCell.identifier)
         collectionView.collectionViewLayout = createComposionalLayout()
     }
     
@@ -30,6 +35,7 @@ class LeaguesDetailsVC: UIViewController {
         case 0:
             return createFirstSection()
         case 1:
+            
             return createSecondSection()
         case 2:
             return createThirdSection()
@@ -74,11 +80,14 @@ class LeaguesDetailsVC: UIViewController {
         // group
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.3))
 //        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
         // section
         let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
+        let configuration = UICollectionViewCompositionalLayoutConfiguration()
+        configuration.scrollDirection = .vertical
+        
+        //section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
         
         
         
@@ -89,31 +98,22 @@ class LeaguesDetailsVC: UIViewController {
         
         return section
     }
-    
-    
     
     func createThirdSection() -> NSCollectionLayoutSection{
-        let inset: CGFloat = 2.5
+        let inset: CGFloat = 3.5
         
         // item
-        let smallItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.5))
-        let smallItem = NSCollectionLayoutItem(layoutSize: smallItemSize)
-        smallItem.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
-        
-        let largeItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1))
-        let largeItem = NSCollectionLayoutItem(layoutSize: largeItemSize)
-        largeItem.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.8), heightDimension: .fractionalHeight(1))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
         
         // group
-        let verticalGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.25), heightDimension: .fractionalHeight(1.0))
-        let verticalGroup = NSCollectionLayoutGroup.vertical(layoutSize: verticalGroupSize, subitems: [smallItem])
-        
-        let horizontalGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.5))
-        let horizontalGroup = NSCollectionLayoutGroup.horizontal(layoutSize: horizontalGroupSize, subitems: [largeItem, verticalGroup, verticalGroup])
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.2), heightDimension: .fractionalHeight(0.3))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
         
         // section
-        let section = NSCollectionLayoutSection(group: horizontalGroup)
-        section.orthogonalScrollingBehavior = .groupPaging
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .continuous
         
         // supplementary
         let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(44))
@@ -121,6 +121,36 @@ class LeaguesDetailsVC: UIViewController {
         section.boundarySupplementaryItems = [header]
         return section
     }
+    
+//    func createThirdSection() -> NSCollectionLayoutSection{
+//        let inset: CGFloat = 2.5
+//
+//        // item
+//        let smallItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.5))
+//        let smallItem = NSCollectionLayoutItem(layoutSize: smallItemSize)
+//        smallItem.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
+//
+//        let largeItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1))
+//        let largeItem = NSCollectionLayoutItem(layoutSize: largeItemSize)
+//        largeItem.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
+//
+//        // group
+//        let verticalGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.25), heightDimension: .fractionalHeight(1.0))
+//        let verticalGroup = NSCollectionLayoutGroup.vertical(layoutSize: verticalGroupSize, subitems: [smallItem])
+//
+//        let horizontalGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.5))
+//        let horizontalGroup = NSCollectionLayoutGroup.horizontal(layoutSize: horizontalGroupSize, subitems: [largeItem, verticalGroup, verticalGroup])
+//
+//        // section
+//        let section = NSCollectionLayoutSection(group: horizontalGroup)
+//        section.orthogonalScrollingBehavior = .groupPaging
+//
+//        // supplementary
+//        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(44))
+//        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: "header", alignment: .top)
+//        section.boundarySupplementaryItems = [header]
+//        return section
+//    }
     
 }
 
@@ -133,12 +163,40 @@ extension LeaguesDetailsVC: UICollectionViewDataSource{
         return 3
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return section == 2 ? 15 : 5
+        switch section{
+        case 0:
+            return 5
+        case 1:
+            return 1
+        case 2:
+            return 5
+        default:
+            return 5
+        }
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = UIColor(hue: drand48(), saturation: 1, brightness: 1, alpha: 1)
-        return cell
+        
+        switch indexPath.section {
+        case 0:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UpcomingEventsCell.identifier, for: indexPath) as! UpcomingEventsCell
+            cell.configUI(eventName: "ahmed", eveitDate: "12/12/2019", eventTime: "05:12")
+            //cell.backgroundColor = UIColor(hue: drand48(), saturation: 1, brightness: 1, alpha: 1)
+            return cell
+        case 1:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LatestResultsCell.identifier, for: indexPath) as! LatestResultsCell
+            //cell.configUI(eventName: "ahmed", eveitDate: "12/12/2019", eventTime: "05:12")
+            return cell
+        case 2:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TeamsCell.identifier, for: indexPath) as! TeamsCell
+            //cell.configUI(eventName: "ahmed", eveitDate: "12/12/2019", eventTime: "05:12")
+            return cell
+        default:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+            cell.backgroundColor = UIColor(hue: drand48(), saturation: 1, brightness: 1, alpha: 1)
+            return cell
+        }
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
