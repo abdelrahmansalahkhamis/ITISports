@@ -83,10 +83,14 @@ class SportsVC: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vm = self.sportListViewModel.sportViewModel(at: indexPath.row)
-        //let
-        performSegue(withIdentifier: "toLeagueVC", sender: vm)
+ 
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "LeguesVC", creator: {
+                (coder) -> LeguesVC? in
+            return LeguesVC(coder: coder, sport: vm.name)
+            })
+        self.navigationController?.pushViewController(vc, animated: true)
+            //present(vc, animated: true, completion: nil)
+        
     }
     
-    
-
 }
