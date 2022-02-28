@@ -9,7 +9,7 @@ import Foundation
 
 
 struct LatestResultsVM{
-    let latestResultItem: Events
+    let latestResultItem: Event
 }
 
 class LatestResultsListVM{

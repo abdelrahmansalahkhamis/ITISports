@@ -13,17 +13,7 @@ class LeguesVC: UITableViewController {
     
     var leaguesListViewModel = LeaguesListViewModel()
     var leaguesForSport: String
-  
-    
-//    init(leaguesForSport: String) {
-//        self.leaguesForSport = leaguesForSport
-//        super.init(style: UITableView.Style.plain)
-//
-//    }
-//
-//    required init?(coder aDecoder: NSCoder) {
-//       super.init(coder: aDecoder)
-//    }
+
     init?(coder: NSCoder, sport: String) {
         self.leaguesForSport = sport
         super.init(coder: coder)

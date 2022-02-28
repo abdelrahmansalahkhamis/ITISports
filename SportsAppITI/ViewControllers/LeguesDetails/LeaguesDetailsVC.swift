@@ -25,16 +25,19 @@ class LeaguesDetailsVC: UIViewController {
         collectionView.register(UINib(nibName: "LatestResultsCell", bundle: nil), forCellWithReuseIdentifier: LatestResultsCell.identifier)
         collectionView.register(UINib(nibName: "TeamsCell", bundle: nil), forCellWithReuseIdentifier: TeamsCell.identifier)
         collectionView.collectionViewLayout = createComposionalLayout()
-        //getAllUpcomingEvents()
-        getAllTeams()
+        getAllUpcomingEvents()
+        //getAllTeams()
     }
     
     func getAllUpcomingEvents(){
-        WebService.load(resource: Events.allEvents) { result in
+        WebService.load(resource: Event.allEvents) { result in
             switch result{
-            case .success(let upcomingEvents):
-
-//                self.upcommingEventsListViewModel.upcomingEventsVM = upcomingEvents.events.map(UpcomingEventVM.init)
+            case .success(let events):
+                print("-------------")
+                print(events)
+                print("-------------")
+                self.upcommingEventsListViewModel.upcomingEventsVM = events.events.map(UpcomingEventVM.init)
+                //self.upcommingEventsListViewModel.upcomingEventsVM = events.events.map(UpcomingEventVM.init)
                 self.collectionView.reloadData()
             case .failure(let error):
                 print("error is => \(error)")
@@ -51,6 +54,7 @@ class LeaguesDetailsVC: UIViewController {
             case .failure(let error):
                 print("error is => \(error)")
             }
+            print("")
         }
     }
     

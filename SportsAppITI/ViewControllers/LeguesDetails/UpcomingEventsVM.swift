@@ -11,7 +11,7 @@ import Foundation
 import Foundation
 
 struct UpcomingEventVM{
-    let upcomingEventItem: Events
+    let upcomingEventItem: Event
 }
 
 

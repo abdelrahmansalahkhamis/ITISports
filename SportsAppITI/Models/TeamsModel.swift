@@ -25,6 +25,7 @@ extension Team{
         guard let url = URL(string: URLs.allTeams) else{
             fatalError("URL Incorrect")
         }
+        
         return Resource<AllTeams>(url: url)
     }()
 }
