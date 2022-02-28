@@ -20,11 +20,11 @@ class UpcomingEventsCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func configUI(eventName: String, eveitDate: String, eventTime: String){
-        self.firstTeam.text = eventName
-        self.secondTeam.text = eventName
-        self.eventDate.text = eveitDate
-        self.eventTime.text = eventTime
+    func configUI(vm: UpcomingEventVM){
+        self.firstTeam.text = vm.eventName
+        self.secondTeam.text = vm.eventName
+        self.eventDate.text = vm.eventDate
+        self.eventTime.text = vm.eventTime
     }
 
 }

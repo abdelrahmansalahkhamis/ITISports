@@ -10,6 +10,10 @@ import UIKit
 // https://lickability.com/blog/getting-started-with-uicollectionviewcompositionallayout/
 
 class LeaguesDetailsVC: UIViewController {
+    
+    var upcommingEventsListViewModel = UpcomingEventListViewModel()
+    var latestResultsListViewModel = LatestResultsListVM()
+    var teamsListViewModel = TeamsListVM()
 
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
@@ -21,6 +25,33 @@ class LeaguesDetailsVC: UIViewController {
         collectionView.register(UINib(nibName: "LatestResultsCell", bundle: nil), forCellWithReuseIdentifier: LatestResultsCell.identifier)
         collectionView.register(UINib(nibName: "TeamsCell", bundle: nil), forCellWithReuseIdentifier: TeamsCell.identifier)
         collectionView.collectionViewLayout = createComposionalLayout()
+        //getAllUpcomingEvents()
+        getAllTeams()
+    }
+    
+    func getAllUpcomingEvents(){
+        WebService.load(resource: Events.allEvents) { result in
+            switch result{
+            case .success(let upcomingEvents):
+
+//                self.upcommingEventsListViewModel.upcomingEventsVM = upcomingEvents.events.map(UpcomingEventVM.init)
+                self.collectionView.reloadData()
+            case .failure(let error):
+                print("error is => \(error)")
+            }
+        }
+    }
+    
+    func getAllTeams(){
+        WebService.load(resource: Team.allTeams) { result in
+            switch result{
+            case .success(let teams):
+                self.teamsListViewModel.teamsVM = teams.teams.map(TeamVM.init)
+                self.collectionView.reloadData()
+            case .failure(let error):
+                print("error is => \(error)")
+            }
+        }
     }
     
     func createComposionalLayout() -> UICollectionViewCompositionalLayout{
@@ -165,21 +196,24 @@ extension LeaguesDetailsVC: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section{
         case 0:
-            return 5
+            return upcommingEventsListViewModel.upcomingEventsVM.count
         case 1:
-            return 1
+            return latestResultsListViewModel.latestResultsVM.count
         case 2:
-            return 5
+            return teamsListViewModel.teamsVM.count
         default:
-            return 5
+            return 2
         }
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        // let vm = self.sportListViewModel.sportViewModel(at: indexPath.row)
         
         switch indexPath.section {
         case 0:
+            let vm = self.upcommingEventsListViewModel.upcomingEventsViewModel(at: indexPath.row)
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UpcomingEventsCell.identifier, for: indexPath) as! UpcomingEventsCell
-            cell.configUI(eventName: "ahmed", eveitDate: "12/12/2019", eventTime: "05:12")
+            //cell.configUI(eventName: "ahmed", eveitDate: "12/12/2019", eventTime: "05:12")
+            cell.configUI(vm: vm)
             //cell.backgroundColor = UIColor(hue: drand48(), saturation: 1, brightness: 1, alpha: 1)
             return cell
         case 1:

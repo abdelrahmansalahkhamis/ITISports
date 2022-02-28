@@ -8,8 +8,6 @@
 import Foundation
 
 
-
-
 struct AllSports: Codable {
     let sports: [Sport]
 }
