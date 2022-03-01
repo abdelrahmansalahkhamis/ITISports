@@ -37,6 +37,16 @@ struct AllTeams: Codable{
 
 struct Team: Codable{
     let strTeamBadge: String
+    let strTeam: String
+    let intFormedYear: String
+    let strCountry: String
+    //let strTeamLogo: String
+    //let strTeamJersey: String
+    let strStadiumLocation: String
+    let strFacebook: String
+    let strTeamFanart1: String
+    let strWebsite: String
+    //let strStadiumLocation: String
 }
 
 extension Team{

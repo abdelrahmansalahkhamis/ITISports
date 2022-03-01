@@ -71,10 +71,10 @@ import Foundation
 
 
 import Foundation
-struct Countrys : Codable {
+struct LeagueModel : Codable {
     let strLeague : String
     let strBadge : String
-
+    let strYoutube: String
 
 //    enum CodingKeys: String, CodingKey {
 //
@@ -90,19 +90,22 @@ struct Countrys : Codable {
 //    }
 }
 
-extension Countrys{
-    static func getAllLeagues(_ sport: String) -> Resource<AllCountries> {
+extension LeagueModel{
+    static func getAllLeagues(_ sport: String) -> Resource<AllLeagues> {
 
             guard let url = URL(string: URLs.allleagues + sport) else{
+                //return
                 fatalError("URL Incorrect")
             }
-            return Resource<AllCountries>(url: url)
+            return Resource<AllLeagues>(url: url)
 
     }
 }
 
-struct AllCountries : Codable {
-    let countrys : [Countrys]
+struct AllLeagues : Codable {
+    
+    let countrys : [LeagueModel]
+    
 
 //    enum CodingKeys: String, CodingKey {
 //

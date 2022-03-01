@@ -35,7 +35,6 @@ class LatestResultsCell: UICollectionViewCell {
         tableView.register(UINib(nibName: "LatestResultTableViewCell", bundle: nil), forCellReuseIdentifier: LatestResultTableViewCell.identifier)
         
         self.tableView.rowHeight = 180
-        leagesDetails.delegate = self
         
     }
     

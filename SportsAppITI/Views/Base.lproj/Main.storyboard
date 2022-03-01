@@ -67,7 +67,7 @@
                             <outlet property="delegate" destination="vO9-Ad-Eqg" id="lMS-Ve-7cF"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Favourates" id="8qX-MZ-09w"/>
+                    <tabBarItem key="tabBarItem" title="Favourates" image="heart.fill" catalog="system" id="8qX-MZ-09w"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1HH-oO-wbD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -106,7 +106,7 @@
                             <outlet property="delegate" destination="Zsa-8j-6EZ" id="wEG-B6-el2"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Sports" id="hpg-C5-nUp"/>
+                    <tabBarItem key="tabBarItem" title="Sports" image="camera.metering.multispot" catalog="system" id="hpg-C5-nUp"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cFa-Bx-wAz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -182,21 +182,234 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yOa-Pv-Dr0">
-                        <barButtonItem key="rightBarButtonItem" image="star" catalog="system" id="hUH-VJ-ZIm"/>
+                        <barButtonItem key="rightBarButtonItem" image="star" catalog="system" id="hUH-VJ-ZIm">
+                            <connections>
+                                <action selector="favBtnPressed:" destination="aPG-8e-Vja" id="csV-0y-jgw"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Jwy-BW-b3i" id="hX5-Nt-gWU"/>
+                        <outlet property="favBtn" destination="hUH-VJ-ZIm" id="URy-4S-WZJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wsm-wV-XzP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="370" y="-576"/>
         </scene>
+        <!--Team DetailsVC-->
+        <scene sceneID="vnJ-EZ-RUy">
+            <objects>
+                <viewController storyboardIdentifier="TeamDetailsVC" id="UNA-Td-v01" customClass="TeamDetailsVC" customModule="SportsAppITI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LI0-1v-N4M">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1120"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6sF-yM-h1w">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1120"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5f2-uB-e7w">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1120"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="network error" translatesAutoresizingMaskIntoConstraints="NO" id="bet-QC-Qzi">
+                                                <rect key="frame" x="86" y="52" width="242" height="238"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="242" id="Jhh-0w-Pv5"/>
+                                                    <constraint firstAttribute="height" constant="238" id="brv-OB-Dpl"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="network error" translatesAutoresizingMaskIntoConstraints="NO" id="3BQ-uf-ZXy">
+                                                <rect key="frame" x="214" y="323" width="180" height="220"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="180" id="Sn2-3A-5JQ"/>
+                                                    <constraint firstAttribute="height" constant="220" id="ixY-LF-7ly"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="network error" translatesAutoresizingMaskIntoConstraints="NO" id="iqa-ch-cb2">
+                                                <rect key="frame" x="15" y="573" width="384" height="300"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="300" id="gRL-fZ-aff"/>
+                                                </constraints>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="46" translatesAutoresizingMaskIntoConstraints="NO" id="cAR-Mt-5T8">
+                                                <rect key="frame" x="28" y="336" width="146" height="153.5"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="ljK-dh-XJQ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="146" height="20.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Since" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BeF-3U-UDR">
+                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="20.5"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="60" id="J4d-tt-Wdi"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1982" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7F-GY-Z7G">
+                                                                <rect key="frame" x="86" y="0.0" width="60" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orignated in" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WsV-ee-slj">
+                                                        <rect key="frame" x="0.0" y="66.5" width="146" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="England" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S1l-4e-vtE">
+                                                        <rect key="frame" x="0.0" y="133" width="146" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="76s-ZM-J4q">
+                                                <rect key="frame" x="20" y="979.5" width="374" height="60"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6WS-UZ-baD">
+                                                        <rect key="frame" x="0.0" y="0.0" width="224" height="60"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <attributedString key="attributedTitle">
+                                                                <fragment content="Open Offecial Website">
+                                                                    <attributes>
+                                                                        <font key="NSFont" size="13" name="Helvetica-Bold"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="teamWebsiteBtnTapped:" destination="UNA-Td-v01" eventType="touchUpInside" id="iew-0M-Y3w"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5O-wi-BUz">
+                                                        <rect key="frame" x="239" y="0.0" width="60" height="60"/>
+                                                        <color key="backgroundColor" systemColor="linkColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="60" id="2RO-wG-pr6"/>
+                                                            <constraint firstAttribute="height" constant="60" id="jzK-UB-C7t"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="facebook-1" imagePlacement="bottom">
+                                                            <attributedString key="attributedTitle"/>
+                                                        </buttonConfiguration>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="30"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="facebookBtnTapped:" destination="UNA-Td-v01" eventType="touchUpInside" id="14u-cK-R7A"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XWR-gl-c1g">
+                                                        <rect key="frame" x="314" y="0.0" width="60" height="60"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="60" id="Ay0-gY-Tcq"/>
+                                                            <constraint firstAttribute="height" constant="60" id="vLO-fZ-atm"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="whatsapp-4" imagePlacement="bottom">
+                                                            <attributedString key="attributedTitle"/>
+                                                        </buttonConfiguration>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="30"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="whatsAppBtnTapped:" destination="UNA-Td-v01" eventType="touchUpInside" id="sQY-9R-4wK"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emirates Stadium" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xff-SI-RPD">
+                                                <rect key="frame" x="30" y="888" width="354" height="25.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="iqa-ch-cb2" secondAttribute="trailing" constant="15" id="7lz-S2-S9h"/>
+                                            <constraint firstItem="cAR-Mt-5T8" firstAttribute="leading" secondItem="5f2-uB-e7w" secondAttribute="leading" constant="28" id="GQH-bW-MYo"/>
+                                            <constraint firstAttribute="height" constant="1120" id="GYj-wo-hid"/>
+                                            <constraint firstItem="3BQ-uf-ZXy" firstAttribute="leading" secondItem="cAR-Mt-5T8" secondAttribute="trailing" constant="40" id="KWU-eO-k3G"/>
+                                            <constraint firstItem="bet-QC-Qzi" firstAttribute="centerX" secondItem="5f2-uB-e7w" secondAttribute="centerX" id="LeO-Av-eDE"/>
+                                            <constraint firstItem="xff-SI-RPD" firstAttribute="leading" secondItem="5f2-uB-e7w" secondAttribute="leading" constant="30" id="RRN-yO-bgx"/>
+                                            <constraint firstAttribute="trailing" secondItem="3BQ-uf-ZXy" secondAttribute="trailing" constant="20" id="Seu-cT-YhN"/>
+                                            <constraint firstItem="3BQ-uf-ZXy" firstAttribute="top" secondItem="bet-QC-Qzi" secondAttribute="bottom" constant="33" id="ZYv-Uc-Gru"/>
+                                            <constraint firstItem="xff-SI-RPD" firstAttribute="top" secondItem="iqa-ch-cb2" secondAttribute="bottom" constant="15" id="Zau-Cz-dtz"/>
+                                            <constraint firstItem="76s-ZM-J4q" firstAttribute="top" secondItem="xff-SI-RPD" secondAttribute="bottom" constant="66" id="bUs-qj-x1M"/>
+                                            <constraint firstItem="bet-QC-Qzi" firstAttribute="top" secondItem="5f2-uB-e7w" secondAttribute="top" constant="52" id="bVM-E6-Hnf"/>
+                                            <constraint firstItem="cAR-Mt-5T8" firstAttribute="top" secondItem="bet-QC-Qzi" secondAttribute="bottom" constant="46" id="cbg-cj-RYU"/>
+                                            <constraint firstItem="iqa-ch-cb2" firstAttribute="top" secondItem="3BQ-uf-ZXy" secondAttribute="bottom" constant="30" id="ibg-tm-XGD"/>
+                                            <constraint firstAttribute="trailing" secondItem="76s-ZM-J4q" secondAttribute="trailing" constant="20" id="opT-hP-3uB"/>
+                                            <constraint firstItem="xff-SI-RPD" firstAttribute="centerX" secondItem="5f2-uB-e7w" secondAttribute="centerX" id="sbO-DM-1hJ"/>
+                                            <constraint firstItem="iqa-ch-cb2" firstAttribute="leading" secondItem="5f2-uB-e7w" secondAttribute="leading" constant="15" id="tFG-7B-cMM"/>
+                                            <constraint firstAttribute="trailing" secondItem="xff-SI-RPD" secondAttribute="trailing" constant="30" id="v1w-iw-sQ1"/>
+                                            <constraint firstItem="76s-ZM-J4q" firstAttribute="leading" secondItem="5f2-uB-e7w" secondAttribute="leading" constant="20" id="xqJ-uE-fwW"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="5f2-uB-e7w" firstAttribute="leading" secondItem="6sF-yM-h1w" secondAttribute="leading" id="F8F-jx-kdc"/>
+                                    <constraint firstItem="5f2-uB-e7w" firstAttribute="top" secondItem="6sF-yM-h1w" secondAttribute="top" id="NDh-8r-L5N"/>
+                                    <constraint firstAttribute="bottom" secondItem="5f2-uB-e7w" secondAttribute="bottom" id="aN6-D2-CZh"/>
+                                    <constraint firstAttribute="trailing" secondItem="5f2-uB-e7w" secondAttribute="trailing" id="bAm-td-bqs"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZkC-54-LfF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6sF-yM-h1w" firstAttribute="leading" secondItem="ZkC-54-LfF" secondAttribute="leading" id="OVm-gm-6M3"/>
+                            <constraint firstItem="5f2-uB-e7w" firstAttribute="width" secondItem="LI0-1v-N4M" secondAttribute="width" id="RDh-Jk-7et"/>
+                            <constraint firstItem="6sF-yM-h1w" firstAttribute="trailing" secondItem="ZkC-54-LfF" secondAttribute="trailing" id="fXi-fe-P5Z"/>
+                            <constraint firstAttribute="bottom" secondItem="6sF-yM-h1w" secondAttribute="bottom" id="j4Q-lK-8ug"/>
+                            <constraint firstItem="6sF-yM-h1w" firstAttribute="top" secondItem="LI0-1v-N4M" secondAttribute="top" id="qf8-m2-y1n"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="414" height="1120"/>
+                    <connections>
+                        <outlet property="teamBadge" destination="3BQ-uf-ZXy" id="NEb-zg-KMY"/>
+                        <outlet property="teamCountry" destination="S1l-4e-vtE" id="5h2-iS-0DK"/>
+                        <outlet property="teamFacebookBtn" destination="Q5O-wi-BUz" id="005-K4-y2P"/>
+                        <outlet property="teamLogo" destination="bet-QC-Qzi" id="Y28-kf-fOQ"/>
+                        <outlet property="teamStudium" destination="iqa-ch-cb2" id="d5D-Qv-Yuf"/>
+                        <outlet property="teamStuduimCountry" destination="xff-SI-RPD" id="Uut-6v-Fdj"/>
+                        <outlet property="teamWebsiteBtn" destination="6WS-UZ-baD" id="zt3-W3-crw"/>
+                        <outlet property="teamWhatsAppBtn" destination="XWR-gl-c1g" id="gBb-eJ-AXy"/>
+                        <outlet property="teamYear" destination="q7F-GY-Z7G" id="oVh-gh-M2b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hg5-en-lcc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1382.608695652174" y="-561.16071428571422"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="camera.metering.multispot" catalog="system" width="128" height="93"/>
+        <image name="facebook-1" width="17" height="32"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="network error" width="400" height="300"/>
         <image name="star" catalog="system" width="128" height="116"/>
+        <image name="whatsapp-4" width="29" height="30"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

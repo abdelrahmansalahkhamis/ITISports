@@ -32,7 +32,7 @@ class LeguesVC: UITableViewController {
     }
     
     func getAllLeagues(){
-        WebService.load(resource: Countrys.getAllLeagues(leaguesForSport)) { result in
+        WebService.load(resource: LeagueModel.getAllLeagues(leaguesForSport)) { result in
             switch result{
             case .success(let leagues):
                 self.leaguesListViewModel.leaguesViewModel = leagues.countrys.map(LeguesVM.init)

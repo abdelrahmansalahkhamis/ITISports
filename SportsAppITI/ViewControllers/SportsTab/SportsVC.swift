@@ -18,16 +18,29 @@ class SportsVC: UICollectionViewController {
         super.viewDidLoad()
         configureCollectionView()
         getAllSports()
+//        CoreDataServices.instance.saveData(LeagueModel(strLeague: "asd", strBadge: "www.", strYoutube: "youtube")) { sucess in
+//            if sucess{
+//                print("sucess")
+//            }else{
+//                print("failed")
+//            }
+//        }
     }
     
     func getAllSports(){
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        self.view.addSubview(activityIndicator)
+        activityIndicator.center = view.center
+        activityIndicator.startAnimating()
         WebService.load(resource: Sport.allSports) { result in
             switch result{
             case .success(let sports):
                 self.sportListViewModel.sportsViewModel = sports.sports.map( SportsVM.init)
                 self.collectionView.reloadData()
+                activityIndicator.stopAnimating()
             case .failure(let error):
                 print("error is => \(error)")
+                activityIndicator.stopAnimating()
             }
         }
     }
@@ -38,7 +51,7 @@ class SportsVC: UICollectionViewController {
             layout.minimumLineSpacing = 1
             layout.minimumInteritemSpacing = 1
             layout.sectionInset = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
-        let size = (view.frame.size.width - 25) / 2
+            let size = (view.frame.size.width - 25) / 2
             layout.itemSize = CGSize(width: size, height: size)
             
             collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -51,17 +64,10 @@ class SportsVC: UICollectionViewController {
             view.addSubview(collectionView)
             collectionView.frame = view.bounds
         }
-
-    // MARK: UICollectionViewDataSource
-
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
-
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
         return self.sportListViewModel.sportsViewModel.count
     }
 
@@ -71,26 +77,20 @@ class SportsVC: UICollectionViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? SportsCell else{
             return UICollectionViewCell()
         }
-                
-        //cell.sportImg.image = UIImage(systemName: "gear")
         cell.sportImg.sd_setImage(with: URL(string: vm.strSportThumb), placeholderImage: UIImage(systemName: "gear"))
         cell.sportTitle.text = vm.name
-        // Configure the cell
         
-    
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vm = self.sportListViewModel.sportViewModel(at: indexPath.row)
- 
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "LeguesVC", creator: {
                 (coder) -> LeguesVC? in
             return LeguesVC(coder: coder, sport: vm.name)
             })
         self.navigationController?.pushViewController(vc, animated: true)
             //present(vc, animated: true, completion: nil)
-        
     }
     
 }

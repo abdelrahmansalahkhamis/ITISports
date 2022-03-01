@@ -22,6 +22,7 @@ class LeaguesDetailsVC: UIViewController {
     weak var delegate: ConfigTableViewCellData?
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var favBtn: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,6 +37,13 @@ class LeaguesDetailsVC: UIViewController {
         getAllTeams()
     }
     
+    @IBAction func favBtnPressed(_ sender: Any) {
+        if favBtn.image == UIImage(systemName: "star"){
+            favBtn.image = UIImage(systemName: "star.fill")
+        }else{
+            favBtn.image = UIImage(systemName: "star")
+        }
+    }
     func getAllUpcomingEvents(){
         WebService.load(resource: Event.allEvents) { result in
             switch result{
@@ -210,7 +218,18 @@ class LeaguesDetailsVC: UIViewController {
 }
 
 extension LeaguesDetailsVC: UICollectionViewDelegate{
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 2{
+            let vm = teamsListViewModel.teamViewModel(at: indexPath.row)
+            guard let teamDetailsVC = storyboard?.instantiateViewController(withIdentifier: "TeamDetailsVC") as? TeamDetailsVC else{
+                return
+            }
+            teamDetailsVC.teamViewModel = vm
+            //self.present(teamDetailsVC, animated: true, completion: nil)
+            self.navigationController?.pushViewController(teamDetailsVC, animated: true)
+        }
+        
+    }
 }
 
 extension LeaguesDetailsVC: UICollectionViewDataSource{

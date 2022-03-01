@@ -9,7 +9,7 @@ import Foundation
 
 
 struct LeguesVM{
-    let leagueItem: Countrys
+    let leagueItem: LeagueModel
     //var leaguesForSport: String?
 }
 
