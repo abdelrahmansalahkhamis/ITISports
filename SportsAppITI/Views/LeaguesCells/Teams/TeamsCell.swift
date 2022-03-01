@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class TeamsCell: UICollectionViewCell {
     
@@ -15,6 +16,10 @@ class TeamsCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    func configUI(vm: TeamVM){
+        teamImg.sd_setImage(with: URL(string: vm.teamBadge), placeholderImage: UIImage(systemName: "gear"))
     }
 
 }

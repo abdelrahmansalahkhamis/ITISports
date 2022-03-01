@@ -9,11 +9,17 @@ import UIKit
 
 // https://lickability.com/blog/getting-started-with-uicollectionviewcompositionallayout/
 
+protocol ConfigTableViewCellData: class{
+    func configData(with vm: LatestResultsListVM)
+}
+
 class LeaguesDetailsVC: UIViewController {
     
     var upcommingEventsListViewModel = UpcomingEventListViewModel()
     var latestResultsListViewModel = LatestResultsListVM()
     var teamsListViewModel = TeamsListVM()
+    
+    weak var delegate: ConfigTableViewCellData?
 
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
@@ -26,7 +32,8 @@ class LeaguesDetailsVC: UIViewController {
         collectionView.register(UINib(nibName: "TeamsCell", bundle: nil), forCellWithReuseIdentifier: TeamsCell.identifier)
         collectionView.collectionViewLayout = createComposionalLayout()
         getAllUpcomingEvents()
-        //getAllTeams()
+        getLatestResults()
+        getAllTeams()
     }
     
     func getAllUpcomingEvents(){
@@ -38,6 +45,19 @@ class LeaguesDetailsVC: UIViewController {
                 print("-------------")
                 self.upcommingEventsListViewModel.upcomingEventsVM = events.events.map(UpcomingEventVM.init)
                 //self.upcommingEventsListViewModel.upcomingEventsVM = events.events.map(UpcomingEventVM.init)
+                self.collectionView.reloadData()
+            case .failure(let error):
+                print("error is => \(error)")
+            }
+        }
+    }
+    
+    func getLatestResults(){
+        WebService.load(resource: Event.allEvents) { result in
+            switch result{
+            case .success(let events):
+                print("-------------")
+                self.latestResultsListViewModel.latestResultsVM = events.events.map(LatestResultsVM.init)
                 self.collectionView.reloadData()
             case .failure(let error):
                 print("error is => \(error)")
@@ -202,7 +222,8 @@ extension LeaguesDetailsVC: UICollectionViewDataSource{
         case 0:
             return upcommingEventsListViewModel.upcomingEventsVM.count
         case 1:
-            return latestResultsListViewModel.latestResultsVM.count
+            return 1
+            //return latestResultsListViewModel.latestResultsVM.count
         case 2:
             return teamsListViewModel.teamsVM.count
         default:
@@ -223,10 +244,14 @@ extension LeaguesDetailsVC: UICollectionViewDataSource{
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LatestResultsCell.identifier, for: indexPath) as! LatestResultsCell
             //cell.configUI(eventName: "ahmed", eveitDate: "12/12/2019", eventTime: "05:12")
+            
+            let vm = self.latestResultsListViewModel
+            cell.configTableData(vm: vm)
             return cell
         case 2:
+            let vm = self.teamsListViewModel.teamViewModel(at: indexPath.row)
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TeamsCell.identifier, for: indexPath) as! TeamsCell
-            //cell.configUI(eventName: "ahmed", eveitDate: "12/12/2019", eventTime: "05:12")
+            cell.configUI(vm: vm)
             return cell
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)

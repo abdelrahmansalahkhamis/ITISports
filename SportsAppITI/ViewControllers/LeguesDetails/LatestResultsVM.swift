@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct LatestResultsVM{
     let latestResultItem: Event
 }
@@ -30,29 +29,33 @@ extension LatestResultsListVM{
 extension LatestResultsVM{
     
     var eventId:String{
-        return self.latestResultItem.idEvent ?? ""
+        return self.latestResultItem.idEvent
     }
     var homeTeam: String{
-        return self.latestResultItem.strHomeTeam ?? ""
+        return self.latestResultItem.strHomeTeam
+    }
+    
+    var strEvent: String{
+        return self.latestResultItem.strEvent
     }
     var awayTeam: String{
-        return self.latestResultItem.strAwayTeam ?? ""
+        return self.latestResultItem.strAwayTeam
     }
     
     var intHomeScore:String{
-        return self.latestResultItem.intHomeScore ?? ""
+        return self.latestResultItem.intHomeScore
     }
     
     var intAwayScore:String{
-        return self.latestResultItem.intAwayScore ?? ""
+        return self.latestResultItem.intAwayScore
     }
     
     var eventDate:String{
-        return self.latestResultItem.dateEvent ?? ""
+        return self.latestResultItem.dateEvent
     }
     
     var eventTime:String{
-        return self.latestResultItem.strTime ?? ""
+        return self.latestResultItem.strTime
     }
     
 }

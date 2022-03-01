@@ -11,17 +11,16 @@ class LatestResultTableViewCell: UITableViewCell {
     
     static let identifier = "LatestResultTableViewCell"
 
-    @IBOutlet weak var homeTeam: UILabel!
-    @IBOutlet weak var secondTeam: UILabel!
+    @IBOutlet weak var homeTeamVSAwayTeam: UILabel!
     @IBOutlet weak var homeTeamScore: UILabel!
-    @IBOutlet weak var secondTeamScore: UILabel!
+    @IBOutlet weak var awayTeamScore: UILabel!
     @IBOutlet weak var dateLbl: UILabel!
     @IBOutlet weak var timeLbl: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
-        configUI()
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -31,13 +30,12 @@ class LatestResultTableViewCell: UITableViewCell {
     }
     
     
-    func configUI(){
-        homeTeam.text = "Brighton"
-        secondTeam.text = "Liverpool"
-        homeTeamScore.text = "0"
-        secondTeamScore.text = "2"
-        dateLbl.text = "20/04/20"
-        timeLbl.text = "10:00:00"
+    func configUI(vm: LatestResultsVM){
+        homeTeamVSAwayTeam.text = vm.strEvent
+        homeTeamScore.text = vm.intHomeScore
+        awayTeamScore.text = vm.intAwayScore
+        dateLbl.text = vm.eventDate
+        timeLbl.text = vm.eventTime
     }
     
 }
