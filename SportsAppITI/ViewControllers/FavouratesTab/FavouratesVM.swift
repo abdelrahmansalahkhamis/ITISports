@@ -8,47 +8,38 @@
 import Foundation
 
 struct FavouratesVM{
-    let sportItem: Sport
+    let leagueItem: LeaguesCoreData
 }
 
 
 class FavouratesListViewModel{
-    var sportsViewModel: [FavouratesVM]
+    var leaguesViewModel: [FavouratesVM]
     init(){
-        self.sportsViewModel = [FavouratesVM]()
+        self.leaguesViewModel = [FavouratesVM]()
     }
 }
 
 extension FavouratesListViewModel{
     
-    func sportViewModel(at index: Int) -> FavouratesVM{
-        return self.sportsViewModel[index]
+    func leaguesViewModel(at index: Int) -> FavouratesVM{
+        return self.leaguesViewModel[index]
     }
 }
 
 
 extension FavouratesVM{
     var id:String{
-        return self.sportItem.idSport
+        return self.leagueItem.idLeague ?? ""
     }
     var name: String{
-        return self.sportItem.strSport
+        return self.leagueItem.strLeague ?? ""
     }
-    var strFormat: String{
-        return self.sportItem.strFormat
-    }
-    
-    var strSportThumb:String{
-        return self.sportItem.strSportThumb
+    var strBadge: String{
+        return self.leagueItem.strBadge ?? ""
     }
     
-    var strSportIconGreen:String{
-        return self.sportItem.strSportIconGreen
-    }
-    
-    
-    var description: String{
-        return self.sportItem.strSportDescription
+    var strYoutube:String{
+        return self.leagueItem.strYoutube ?? ""
     }
 }
 

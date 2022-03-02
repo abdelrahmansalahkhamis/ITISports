@@ -39,6 +39,7 @@
 		A496EE6927C7D82500869933 /* LeaguesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A496EE6827C7D82500869933 /* LeaguesModel.swift */; };
 		A496EE6D27C7E0FA00869933 /* LeagueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A496EE6B27C7E0FA00869933 /* LeagueCell.swift */; };
 		A496EE6E27C7E0FA00869933 /* LeagueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A496EE6C27C7E0FA00869933 /* LeagueCell.xib */; };
+		A4AB8B9927CFC3DB0043CB16 /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AB8B9827CFC3DB0043CB16 /* CoreDataModel.swift */; };
 		A4D5093127CA8DFD00B07A25 /* LeaguesDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D5093027CA8DFC00B07A25 /* LeaguesDetailsVC.swift */; };
 		A4D5093727CAB4AD00B07A25 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D5093527CAB4AD00B07A25 /* HeaderView.swift */; };
 		A4D5093827CAB4AD00B07A25 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4D5093627CAB4AD00B07A25 /* HeaderView.xib */; };
@@ -88,6 +89,7 @@
 		A496EE6827C7D82500869933 /* LeaguesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesModel.swift; sourceTree = "<group>"; };
 		A496EE6B27C7E0FA00869933 /* LeagueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueCell.swift; sourceTree = "<group>"; };
 		A496EE6C27C7E0FA00869933 /* LeagueCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeagueCell.xib; sourceTree = "<group>"; };
+		A4AB8B9827CFC3DB0043CB16 /* CoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
 		A4D5093027CA8DFC00B07A25 /* LeaguesDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesDetailsVC.swift; sourceTree = "<group>"; };
 		A4D5093527CAB4AD00B07A25 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		A4D5093627CAB4AD00B07A25 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				A496EE6827C7D82500869933 /* LeaguesModel.swift */,
 				A4E33F7F27CC0C6A00668974 /* TeamsModel.swift */,
 				A47DF63827CCF05B00471D88 /* EventsModel.swift */,
+				A4AB8B9827CFC3DB0043CB16 /* CoreDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 			files = (
 				A45AB1D427C7744E0066F777 /* SportsModel.swift in Sources */,
 				A4E33F8027CC0C6A00668974 /* TeamsModel.swift in Sources */,
+				A4AB8B9927CFC3DB0043CB16 /* CoreDataModel.swift in Sources */,
 				A4D5093727CAB4AD00B07A25 /* HeaderView.swift in Sources */,
 				A4036E1627CD1E1400E3A955 /* TeamsVM.swift in Sources */,
 				A405A9A227C6C316002698D5 /* AppDelegate.swift in Sources */,

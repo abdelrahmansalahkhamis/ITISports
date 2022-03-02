@@ -42,9 +42,34 @@ class TeamDetailsVC: UIViewController {
         teamStuduimCountry.text = vm.strTeamFanart1
     }
     @IBAction func teamWebsiteBtnTapped(_ sender: Any) {
+        if teamViewModel?.strWebsite != "" {
+            let url = URL(string: teamViewModel!.strWebsite)
+            print(url)
+            guard let safeURL = url else {
+                return
+            }
+            UIApplication.shared.open(safeURL)
+            
+        }else {
+            print("no Website link")
+            //Toast.showToast(controller: self, message: "No link found", seconds: 1)
+        }
+        
     }
     
     @IBAction func facebookBtnTapped(_ sender: Any) {
+        if teamViewModel?.strFacebook != "" {
+            let url = URL(string: teamViewModel!.strFacebook)
+            print(url)
+            guard let safeURL = url else {
+                return
+            }
+            UIApplication.shared.open(safeURL)
+            
+        }else {
+            print("no facebook link")
+            //Toast.showToast(controller: self, message: "No link found", seconds: 1)
+        }
     }
     @IBAction func whatsAppBtnTapped(_ sender: Any) {
     }

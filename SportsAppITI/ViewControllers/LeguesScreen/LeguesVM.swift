@@ -32,9 +32,9 @@ extension LeaguesListViewModel{
 
 extension LeguesVM{
     
-//    var id:String{
-//        return self.leagueItem.idLeague
-//    }
+    var id:String{
+        return self.leagueItem.idLeague
+    }
     var name: String{
         return self.leagueItem.strLeague
     }
@@ -42,7 +42,9 @@ extension LeguesVM{
     var strLeagueBadge:String{
         return self.leagueItem.strBadge
     }
-    
+    var strLeagueYoutube:String{
+        return self.leagueItem.strYoutube
+    }
 }
 
 

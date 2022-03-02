@@ -17,7 +17,7 @@ class LatestResultsCell: UICollectionViewCell {
     let ntdlCell = "ntdlCell"
     
     var latestResultsViewModel: LatestResultsListVM?
-    let leagesDetails = LeaguesDetailsVC()
+    //let leagesDetails = LeaguesDetailsVC()
     
 //    init?(coder: NSCoder, latestResultsViewModel: LatestResultsVM) {
 //        self.latestResultsViewModel

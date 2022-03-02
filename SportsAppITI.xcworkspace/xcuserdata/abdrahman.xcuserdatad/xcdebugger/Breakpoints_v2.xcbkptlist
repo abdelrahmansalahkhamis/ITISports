@@ -20,32 +20,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2F7A7889-6EB7-4E96-A9A8-EFBBD185561B"
+            uuid = "458E8B28-1AF8-48FF-A984-27BFF0894051"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SportsAppITI/ViewControllers/FavouratesTab/FavouratesVC.swift"
+            filePath = "SportsAppITI/Services/CoreDataServices.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "getAllLeagues()"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "fetchData(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "55DB0B26-0001-4219-B0A1-1A2D3A871256"
+            uuid = "34DFD37E-257C-49F4-A77A-0EB43E5ACD28"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SportsAppITI/ViewControllers/FavouratesTab/FavouratesVC.swift"
+            filePath = "SportsAppITI/Services/CoreDataServices.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "27"
             endingLineNumber = "27"
-            landmarkName = "getAllLeagues()"
+            landmarkName = "fetchData(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

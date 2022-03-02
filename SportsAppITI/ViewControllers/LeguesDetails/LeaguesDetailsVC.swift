@@ -20,9 +20,37 @@ class LeaguesDetailsVC: UIViewController {
     var teamsListViewModel = TeamsListVM()
     
     weak var delegate: ConfigTableViewCellData?
-
+    
+    
+    var eventsForLeagues: String
+    var teamsForLeagues: String
+    
+    var leaguesViewModel: LeguesVM
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var favBtn: UIBarButtonItem!
+    
+    
+    init?(coder: NSCoder, leaguesViewModel: LeguesVM) {
+        self.leaguesViewModel = leaguesViewModel
+        let leagueName = leaguesViewModel.leagueItem.strLeague.replacingOccurrences(of: " ", with: "%20")
+        self.eventsForLeagues = leaguesViewModel.leagueItem.idLeague
+        self.teamsForLeagues = leagueName
+        super.init(coder: coder)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+//    init?(coder: NSCoder, eventsForLeagues: String, teamsForLeagues: String) {
+//        self.eventsForLeagues = eventsForLeagues
+//        self.teamsForLeagues = teamsForLeagues
+//        super.init(coder: coder)
+//    }
+//
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,13 +67,38 @@ class LeaguesDetailsVC: UIViewController {
     
     @IBAction func favBtnPressed(_ sender: Any) {
         if favBtn.image == UIImage(systemName: "star"){
-            favBtn.image = UIImage(systemName: "star.fill")
+//            CoreDataServices.instance.saveData(LeagueModel(idLeague: "123", strLeague: "asd", strBadge: "www.", strYoutube: "youtube")) { sucess in
+//                if sucess{
+//                    print("sucess")
+//                    self.favBtn.image = UIImage(systemName: "star.fill")
+//                }else{
+//                    print("failed")
+//                }
+//            }
+            CoreDataServices.instance.saveData(LeaguesCoreData(idLeague: leaguesViewModel.leagueItem.idLeague, strLeague: leaguesViewModel.leagueItem.strLeague, strBadge: leaguesViewModel.leagueItem.idLeague, strYoutube: leaguesViewModel.leagueItem.strYoutube)) { sucess in
+                if sucess{
+                    print("added to favourate sucessfully")
+                    self.favBtn.image = UIImage(systemName: "star.fill")
+                }else{
+                    print("unable to add to favourate")
+                }
+            }
+            
         }else{
-            favBtn.image = UIImage(systemName: "star")
+            let alert = UIAlertController(title: "Attention", message: "remove from favourates?", preferredStyle: .alert)
+
+            let action = UIAlertAction(title: "remove", style: .destructive) { _ in
+                self.favBtn.image = UIImage(systemName: "star")
+            }
+            let cancel = UIAlertAction(title: "cancel", style: .default, handler: nil)
+            alert.addAction(action)
+            alert.addAction(cancel)
+            self.present(alert, animated: true, completion: nil)
+            
         }
     }
     func getAllUpcomingEvents(){
-        WebService.load(resource: Event.allEvents) { result in
+        WebService.load(resource: Event.getAllEvents(for: eventsForLeagues)) { result in
             switch result{
             case .success(let events):
                 print("-------------")
@@ -61,7 +114,7 @@ class LeaguesDetailsVC: UIViewController {
     }
     
     func getLatestResults(){
-        WebService.load(resource: Event.allEvents) { result in
+        WebService.load(resource: Event.getAllEvents(for: eventsForLeagues)) { result in
             switch result{
             case .success(let events):
                 print("-------------")
@@ -74,7 +127,7 @@ class LeaguesDetailsVC: UIViewController {
     }
     
     func getAllTeams(){
-        WebService.load(resource: Team.allTeams) { result in
+        WebService.load(resource: Team.getAllTeams(for: teamsForLeagues)) { result in
             switch result{
             case .success(let teams):
                 self.teamsListViewModel.teamsVM = teams.teams.map(TeamVM.init)

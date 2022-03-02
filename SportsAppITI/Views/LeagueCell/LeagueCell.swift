@@ -12,11 +12,13 @@ class LeagueCell: UITableViewCell {
     @IBOutlet weak var leagueImg: UIImageView!
     @IBOutlet weak var leagueLbl: UILabel!
     @IBOutlet weak var leagueBtn: UIButton!
+    
+    var openVideo = {}
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         leagueImg.layer.cornerRadius = 30
-        leagueImg.backgroundColor = .blue
+        //leagueImg.backgroundColor = .blue
         leagueImg.layer.masksToBounds = true
     }
 
@@ -26,4 +28,7 @@ class LeagueCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func videoBtnTapped(_ sender: Any) {
+        self.openVideo()
+    }
 }

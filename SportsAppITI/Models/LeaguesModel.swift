@@ -72,6 +72,7 @@ import Foundation
 
 import Foundation
 struct LeagueModel : Codable {
+    let idLeague: String
     let strLeague : String
     let strBadge : String
     let strYoutube: String

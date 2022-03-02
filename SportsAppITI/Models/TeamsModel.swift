@@ -50,11 +50,23 @@ struct Team: Codable{
 }
 
 extension Team{
-    static var allTeams: Resource<AllTeams> = {
-        guard let url = URL(string: URLs.allTeams) else{
-            fatalError("URL Incorrect")
-        }
-        print("all events url is :- \(URLs.allEvents)")
-        return Resource<AllTeams>(url: url)
-    }()
+    
+    static func getAllTeams(for league: String) -> Resource<AllTeams>{
+        
+            guard let url = URL(string: URLs.allTeams + league) else{
+                
+                //throw NetworkError.domainError
+                fatalError("URL Incorrect")
+                //return Resource<AllTeams>(url: URL(string: "")!)
+            }
+            return Resource<AllTeams>(url: url)
+
+    }
+//    static var allTeams: Resource<AllTeams> = {
+//        guard let url = URL(string: URLs.allTeams) else{
+//            fatalError("URL Incorrect")
+//        }
+//        print("all events url is :- \(URLs.allEvents)")
+//        return Resource<AllTeams>(url: url)
+//    }()
 }

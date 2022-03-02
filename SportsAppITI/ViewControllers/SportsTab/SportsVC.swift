@@ -17,14 +17,17 @@ class SportsVC: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
-        getAllSports()
-//        CoreDataServices.instance.saveData(LeagueModel(strLeague: "asd", strBadge: "www.", strYoutube: "youtube")) { sucess in
+//        CoreDataServices.instance.fetchData { allLeagues in
+//            print("done ;)")
+//        }
+//        CoreDataServices.instance.deleteData { sucess in
 //            if sucess{
 //                print("sucess")
 //            }else{
 //                print("failed")
 //            }
 //        }
+        getAllSports()
     }
     
     func getAllSports(){

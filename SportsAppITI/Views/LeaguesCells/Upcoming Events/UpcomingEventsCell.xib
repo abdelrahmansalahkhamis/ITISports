@@ -18,34 +18,8 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ciH-hs-myx">
-                        <rect key="frame" x="5" y="0.0" width="240" height="200"/>
+                        <rect key="frame" x="10" y="5" width="230" height="190"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Nh1-vA-5Vt">
-                                <rect key="frame" x="74" y="12" width="92" height="100"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQR-N0-OZg">
-                                        <rect key="frame" x="0.0" y="0.0" width="92" height="33.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="vs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRB-Pr-IYZ">
-                                        <rect key="frame" x="37.5" y="33.5" width="17" height="33"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Southampt" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1pn-k0-xrB">
-                                        <rect key="frame" x="4" y="66.5" width="84" height="33.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="JOF-Oj-ACr"/>
-                                </constraints>
-                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hXG-is-LUD">
                                 <rect key="frame" x="8" y="132" width="79" height="45.5"/>
                                 <subviews>
@@ -63,29 +37,43 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIq-7A-W0Z">
+                                <rect key="frame" x="20" y="20" width="190" height="98"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="98" id="qqp-Xm-6vV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="HIq-7A-W0Z" secondAttribute="trailing" constant="20" id="E44-qa-nac"/>
                             <constraint firstItem="hXG-is-LUD" firstAttribute="leading" secondItem="ciH-hs-myx" secondAttribute="leading" constant="8" id="EGD-9u-8QO"/>
-                            <constraint firstItem="Nh1-vA-5Vt" firstAttribute="centerX" secondItem="ciH-hs-myx" secondAttribute="centerX" id="FYm-uY-Txg"/>
-                            <constraint firstItem="hXG-is-LUD" firstAttribute="top" secondItem="Nh1-vA-5Vt" secondAttribute="bottom" constant="20" id="NKP-XP-qWI"/>
-                            <constraint firstItem="Nh1-vA-5Vt" firstAttribute="top" secondItem="ciH-hs-myx" secondAttribute="top" constant="12" id="yNM-H9-6C7"/>
+                            <constraint firstItem="hXG-is-LUD" firstAttribute="top" secondItem="HIq-7A-W0Z" secondAttribute="bottom" constant="14" id="Z3T-iX-TjO"/>
+                            <constraint firstItem="HIq-7A-W0Z" firstAttribute="top" secondItem="ciH-hs-myx" secondAttribute="top" constant="20" id="eGD-Bx-rwe"/>
+                            <constraint firstItem="HIq-7A-W0Z" firstAttribute="leading" secondItem="ciH-hs-myx" secondAttribute="leading" constant="20" id="xLc-9r-quy"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="ciH-hs-myx" secondAttribute="bottom" id="5i3-at-OKt"/>
-                <constraint firstAttribute="trailing" secondItem="ciH-hs-myx" secondAttribute="trailing" constant="5" id="WXn-VG-yay"/>
-                <constraint firstItem="ciH-hs-myx" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="a6U-RY-YiD"/>
-                <constraint firstItem="ciH-hs-myx" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="hSM-qR-MKR"/>
+                <constraint firstAttribute="bottom" secondItem="ciH-hs-myx" secondAttribute="bottom" constant="5" id="5i3-at-OKt"/>
+                <constraint firstAttribute="trailing" secondItem="ciH-hs-myx" secondAttribute="trailing" constant="10" id="WXn-VG-yay"/>
+                <constraint firstItem="ciH-hs-myx" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="a6U-RY-YiD"/>
+                <constraint firstItem="ciH-hs-myx" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="hSM-qR-MKR"/>
             </constraints>
             <connections>
                 <outlet property="eventDate" destination="Icb-My-93M" id="ddh-6c-gmU"/>
+                <outlet property="eventLbl" destination="HIq-7A-W0Z" id="5vh-45-ADQ"/>
                 <outlet property="eventTime" destination="x8q-dY-obs" id="EmC-mx-zXi"/>
-                <outlet property="firstTeam" destination="kQR-N0-OZg" id="6DX-1A-A11"/>
-                <outlet property="secondTeam" destination="1pn-k0-xrB" id="OUT-LM-l9M"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="99.776785714285708"/>
         </collectionViewCell>

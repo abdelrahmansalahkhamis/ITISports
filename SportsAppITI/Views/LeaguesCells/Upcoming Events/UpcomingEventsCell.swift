@@ -11,8 +11,8 @@ class UpcomingEventsCell: UICollectionViewCell {
     
     static let identifier = "UpcomingEventsCell"
 
-    @IBOutlet weak var firstTeam: UILabel!
-    @IBOutlet weak var secondTeam: UILabel!
+    
+    @IBOutlet weak var eventLbl: UILabel!
     @IBOutlet weak var eventDate: UILabel!
     @IBOutlet weak var eventTime: UILabel!
     override func awakeFromNib() {
@@ -21,8 +21,9 @@ class UpcomingEventsCell: UICollectionViewCell {
     }
     
     func configUI(vm: UpcomingEventVM){
-        self.firstTeam.text = vm.eventName
-        self.secondTeam.text = vm.eventName
+//        self.firstTeam.text = vm.eventName
+//        self.secondTeam.text = vm.eventName
+        self.eventLbl.text = vm.eventName
         self.eventDate.text = vm.eventDate
         self.eventTime.text = vm.eventTime
     }

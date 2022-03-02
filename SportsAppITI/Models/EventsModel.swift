@@ -189,11 +189,19 @@ struct Event: Codable{
 }
 
 extension Event{
-    static var allEvents: Resource<AllEvents> = {
-        guard let url = URL(string: URLs.allEvents) else{
+    
+    static func getAllEvents(for league: String) -> Resource<AllEvents>{
+        guard let url = URL(string: URLs.allEvents + league) else{
             fatalError("URL Incorrect")
         }
-        print("all events url is :- \(URLs.allEvents)")
+        print("all events url is :- \(URLs.allEvents + league)")
         return Resource<AllEvents>(url: url)
-    }()
+    }
+//    static var allEvents: Resource<AllEvents> = {
+//        guard let url = URL(string: URLs.allEvents) else{
+//            fatalError("URL Incorrect")
+//        }
+//        print("all events url is :- \(URLs.allEvents)")
+//        return Resource<AllEvents>(url: url)
+//    }()
 }

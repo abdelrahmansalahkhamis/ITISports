@@ -57,6 +57,7 @@ class WebService{
                     completion(.failure(.decodingError))
                 }
             }catch(let error){
+                completion(.failure(.decodingError))
                 print("error is ==> \(error)")
             }
             
