@@ -106,6 +106,7 @@ class FavouratesVC: UITableViewController {
             let action = UIAlertAction(title: "Delete", style: .destructive) { _ in
                 CoreDataServices.instance.deleteData(name: vm.name) { sucess in
                     if sucess{
+                        //self.leaguesListViewModel.leaguesViewModel = []
                         self.getAllLeagues()
                     }else{
                         print("unable to delete")
@@ -117,6 +118,7 @@ class FavouratesVC: UITableViewController {
             alert.addAction(cancel)
             self.present(alert, animated: true, completion: nil)
           }
+        
     }
 
 }
