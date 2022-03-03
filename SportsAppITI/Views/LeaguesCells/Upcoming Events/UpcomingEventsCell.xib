@@ -20,17 +20,17 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ciH-hs-myx">
                         <rect key="frame" x="10" y="5" width="230" height="190"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hXG-is-LUD">
-                                <rect key="frame" x="8" y="132" width="79" height="45.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="hXG-is-LUD">
+                                <rect key="frame" x="8" y="112" width="79" height="65.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icb-My-93M">
-                                        <rect key="frame" x="0.0" y="0.0" width="79" height="19.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Event Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icb-My-93M">
+                                        <rect key="frame" x="0.0" y="0.0" width="79" height="30.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8q-dY-obs">
-                                        <rect key="frame" x="0.0" y="27.5" width="79" height="18"/>
+                                        <rect key="frame" x="0.0" y="35.5" width="79" height="30"/>
                                         <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -38,9 +38,9 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIq-7A-W0Z">
-                                <rect key="frame" x="20" y="20" width="190" height="98"/>
+                                <rect key="frame" x="20" y="20" width="190" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="98" id="qqp-Xm-6vV"/>
+                                    <constraint firstAttribute="height" constant="80" id="aff-Bf-UeM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <nil key="textColor"/>
@@ -49,10 +49,11 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                         <constraints>
+                            <constraint firstItem="hXG-is-LUD" firstAttribute="top" secondItem="HIq-7A-W0Z" secondAttribute="bottom" constant="12" id="57N-eU-6I6"/>
                             <constraint firstAttribute="trailing" secondItem="HIq-7A-W0Z" secondAttribute="trailing" constant="20" id="E44-qa-nac"/>
                             <constraint firstItem="hXG-is-LUD" firstAttribute="leading" secondItem="ciH-hs-myx" secondAttribute="leading" constant="8" id="EGD-9u-8QO"/>
-                            <constraint firstItem="hXG-is-LUD" firstAttribute="top" secondItem="HIq-7A-W0Z" secondAttribute="bottom" constant="14" id="Z3T-iX-TjO"/>
                             <constraint firstItem="HIq-7A-W0Z" firstAttribute="top" secondItem="ciH-hs-myx" secondAttribute="top" constant="20" id="eGD-Bx-rwe"/>
+                            <constraint firstAttribute="bottom" secondItem="hXG-is-LUD" secondAttribute="bottom" constant="12.5" id="hU0-ma-h4f"/>
                             <constraint firstItem="HIq-7A-W0Z" firstAttribute="leading" secondItem="ciH-hs-myx" secondAttribute="leading" constant="20" id="xLc-9r-quy"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>

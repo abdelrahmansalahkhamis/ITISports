@@ -12,8 +12,15 @@ private let reuseIdentifier = "LeagueCell"
 class LeguesVC: UITableViewController {
     
     var leaguesListViewModel = LeaguesListViewModel()
+    
+    var filteredLeaguesListViewModel = LeaguesListViewModel()
     var leaguesForSport: String
+    
+    private let searchController = UISearchController(searchResultsController: nil)
 
+    private var inSearchMode: Bool{
+            return searchController.isActive && !searchController.searchBar.text!.isEmpty
+        }
     init?(coder: NSCoder, sport: String) {
         self.leaguesForSport = sport
         super.init(coder: coder)
@@ -28,6 +35,7 @@ class LeguesVC: UITableViewController {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "LeagueCell", bundle: nil), forCellReuseIdentifier: reuseIdentifier)
         print("leaguesForSport is :- \(leaguesForSport)")
+        configureSearchController()
         getAllLeagues()
     }
     
@@ -43,6 +51,20 @@ class LeguesVC: UITableViewController {
         }
     }
 
+    func configureSearchController(){
+            searchController.searchResultsUpdater = self
+            searchController.searchBar.showsCancelButton = false
+            navigationItem.searchController = searchController
+            searchController.obscuresBackgroundDuringPresentation = false
+            searchController.hidesNavigationBarDuringPresentation = false
+            searchController.searchBar.placeholder = "search"
+            definesPresentationContext = false
+            if let textField = searchController.searchBar.value(forKey: "searchField") as? UITextField{
+                textField.backgroundColor = .white
+                textField.textAlignment = .center
+                textField.placeholder = "search"
+            }
+        }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -52,16 +74,21 @@ class LeguesVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return leaguesListViewModel.leaguesViewModel.count
+        return inSearchMode ? filteredLeaguesListViewModel.leaguesViewModel.count : leaguesListViewModel.leaguesViewModel.count
+        //return leaguesListViewModel.leaguesViewModel.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let vm = self.leaguesListViewModel.leaguesViewModel(at: indexPath.row)
+        var vm: LeguesVM
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? LeagueCell else{
             return UITableViewCell()
         }
-                
-        //cell.sportImg.image = UIImage(systemName: "gear")
+        if inSearchMode{
+            vm = self.filteredLeaguesListViewModel.leaguesViewModel(at: indexPath.row)
+        }else{
+            vm = self.leaguesListViewModel.leaguesViewModel(at: indexPath.row)
+        }
         cell.leagueImg.sd_setImage(with: URL(string: vm.strLeagueBadge), placeholderImage: UIImage(systemName: "gear"))
         cell.leagueLbl.text = vm.name
         cell.openVideo = {
@@ -71,7 +98,6 @@ class LeguesVC: UITableViewController {
                 
             }else {
                 print("no youtube link")
-                //Toast.showToast(controller: self, message: "No link found", seconds: 1)
             }
         }
         return cell
@@ -82,14 +108,30 @@ class LeguesVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vm = self.leaguesListViewModel.leaguesViewModel(at: indexPath.row)
+        var vm: LeguesVM
+        if inSearchMode{
+            vm = self.filteredLeaguesListViewModel.leaguesViewModel(at: indexPath.row)
+        }else{
+            vm = self.leaguesListViewModel.leaguesViewModel(at: indexPath.row)
+        }
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "LeguesDetailsVC", creator: {
                 (coder) -> LeaguesDetailsVC? in
-//            return LeaguesDetailsVC(coder: coder, eventsForLeagues: vm.id, teamsForLeagues: leagueName)
             return LeaguesDetailsVC(coder: coder, leaguesViewModel: vm)
             })
-//        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "LeguesDetailsVC")
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+}
+
+extension LeguesVC: UISearchResultsUpdating{
+    // called everytime you type something
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text?.lowercased() else {return}
+        
+        filteredLeaguesListViewModel.leaguesViewModel = leaguesListViewModel.leaguesViewModel.filter({ (item) -> Bool in
+            return item.name.contains(searchText)
+            //return String(item).contains(searchText)
+        })
+        self.tableView.reloadData()
+    }
 }

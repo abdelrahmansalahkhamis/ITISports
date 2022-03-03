@@ -62,10 +62,6 @@ class SportsVC: UICollectionViewController {
             collectionView?.backgroundColor = .systemBackground
             collectionView?.register(UINib(nibName: "SportsCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
             
-            guard let collectionView = collectionView else {return}
-            
-            view.addSubview(collectionView)
-            collectionView.frame = view.bounds
         }
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1

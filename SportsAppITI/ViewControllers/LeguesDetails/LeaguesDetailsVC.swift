@@ -6,7 +6,6 @@
 //
 
 import UIKit
-
 // https://lickability.com/blog/getting-started-with-uicollectionviewcompositionallayout/
 
 protocol ConfigTableViewCellData: class{
@@ -29,7 +28,6 @@ class LeaguesDetailsVC: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var favBtn: UIBarButtonItem!
     
-    
     init?(coder: NSCoder, leaguesViewModel: LeguesVM) {
         self.leaguesViewModel = leaguesViewModel
         let leagueName = leaguesViewModel.leagueItem.strLeague.replacingOccurrences(of: " ", with: "%20")
@@ -41,16 +39,7 @@ class LeaguesDetailsVC: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-//    init?(coder: NSCoder, eventsForLeagues: String, teamsForLeagues: String) {
-//        self.eventsForLeagues = eventsForLeagues
-//        self.teamsForLeagues = teamsForLeagues
-//        super.init(coder: coder)
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -67,17 +56,11 @@ class LeaguesDetailsVC: UIViewController {
     
     @IBAction func favBtnPressed(_ sender: Any) {
         if favBtn.image == UIImage(systemName: "star"){
-//            CoreDataServices.instance.saveData(LeagueModel(idLeague: "123", strLeague: "asd", strBadge: "www.", strYoutube: "youtube")) { sucess in
-//                if sucess{
-//                    print("sucess")
-//                    self.favBtn.image = UIImage(systemName: "star.fill")
-//                }else{
-//                    print("failed")
-//                }
-//            }
+
             CoreDataServices.instance.saveData(LeaguesCoreData(idLeague: leaguesViewModel.leagueItem.idLeague, strLeague: leaguesViewModel.leagueItem.strLeague, strBadge: leaguesViewModel.leagueItem.idLeague, strYoutube: leaguesViewModel.leagueItem.strYoutube)) { sucess in
                 if sucess{
                     print("added to favourate sucessfully")
+                    NotificationCenter.default.post(name: NOTIF_ADD_FAVOURATE, object: nil)
                     self.favBtn.image = UIImage(systemName: "star.fill")
                 }else{
                     print("unable to add to favourate")
@@ -159,8 +142,6 @@ class LeaguesDetailsVC: UIViewController {
             return createFirstSection()
         }
     }
-    
-    
     func createFirstSection() -> NSCollectionLayoutSection{
         let inset: CGFloat = 3.5
         
@@ -203,10 +184,6 @@ class LeaguesDetailsVC: UIViewController {
         let configuration = UICollectionViewCompositionalLayoutConfiguration()
         configuration.scrollDirection = .vertical
         
-        //section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
-        
-        
-        
         // supplementary
         let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(44))
         let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: "header", alignment: .top)
@@ -237,37 +214,6 @@ class LeaguesDetailsVC: UIViewController {
         section.boundarySupplementaryItems = [header]
         return section
     }
-    
-//    func createThirdSection() -> NSCollectionLayoutSection{
-//        let inset: CGFloat = 2.5
-//
-//        // item
-//        let smallItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.5))
-//        let smallItem = NSCollectionLayoutItem(layoutSize: smallItemSize)
-//        smallItem.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
-//
-//        let largeItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1))
-//        let largeItem = NSCollectionLayoutItem(layoutSize: largeItemSize)
-//        largeItem.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
-//
-//        // group
-//        let verticalGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.25), heightDimension: .fractionalHeight(1.0))
-//        let verticalGroup = NSCollectionLayoutGroup.vertical(layoutSize: verticalGroupSize, subitems: [smallItem])
-//
-//        let horizontalGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.5))
-//        let horizontalGroup = NSCollectionLayoutGroup.horizontal(layoutSize: horizontalGroupSize, subitems: [largeItem, verticalGroup, verticalGroup])
-//
-//        // section
-//        let section = NSCollectionLayoutSection(group: horizontalGroup)
-//        section.orthogonalScrollingBehavior = .groupPaging
-//
-//        // supplementary
-//        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(44))
-//        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: "header", alignment: .top)
-//        section.boundarySupplementaryItems = [header]
-//        return section
-//    }
-    
 }
 
 extension LeaguesDetailsVC: UICollectionViewDelegate{
@@ -278,13 +224,11 @@ extension LeaguesDetailsVC: UICollectionViewDelegate{
                 return
             }
             teamDetailsVC.teamViewModel = vm
-            //self.present(teamDetailsVC, animated: true, completion: nil)
             self.navigationController?.pushViewController(teamDetailsVC, animated: true)
         }
         
     }
 }
-
 extension LeaguesDetailsVC: UICollectionViewDataSource{
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 3
@@ -295,7 +239,6 @@ extension LeaguesDetailsVC: UICollectionViewDataSource{
             return upcommingEventsListViewModel.upcomingEventsVM.count
         case 1:
             return 1
-            //return latestResultsListViewModel.latestResultsVM.count
         case 2:
             return teamsListViewModel.teamsVM.count
         default:
@@ -303,20 +246,14 @@ extension LeaguesDetailsVC: UICollectionViewDataSource{
         }
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        // let vm = self.sportListViewModel.sportViewModel(at: indexPath.row)
-        
         switch indexPath.section {
         case 0:
             let vm = self.upcommingEventsListViewModel.upcomingEventsViewModel(at: indexPath.row)
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UpcomingEventsCell.identifier, for: indexPath) as! UpcomingEventsCell
-            //cell.configUI(eventName: "ahmed", eveitDate: "12/12/2019", eventTime: "05:12")
             cell.configUI(vm: vm)
-            //cell.backgroundColor = UIColor(hue: drand48(), saturation: 1, brightness: 1, alpha: 1)
             return cell
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LatestResultsCell.identifier, for: indexPath) as! LatestResultsCell
-            //cell.configUI(eventName: "ahmed", eveitDate: "12/12/2019", eventTime: "05:12")
-            
             let vm = self.latestResultsListViewModel
             cell.configTableData(vm: vm)
             return cell
@@ -330,8 +267,6 @@ extension LeaguesDetailsVC: UICollectionViewDataSource{
             cell.backgroundColor = UIColor(hue: drand48(), saturation: 1, brightness: 1, alpha: 1)
             return cell
         }
-        
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

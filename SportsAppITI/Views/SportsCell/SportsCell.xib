@@ -18,14 +18,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Au-74-wJe">
-                        <rect key="frame" x="0.0" y="0.0" width="313" height="328"/>
+                        <rect key="frame" x="0.0" y="5" width="313" height="318"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="AxB-GQ-36A">
-                                <rect key="frame" x="0.0" y="1" width="313" height="325.5"/>
+                                <rect key="frame" x="0.0" y="1" width="313" height="315.5"/>
                                 <color key="tintColor" systemColor="systemYellowColor"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sport" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glc-T1-uWG">
-                                <rect key="frame" x="0.0" y="273" width="313" height="55"/>
+                                <rect key="frame" x="0.0" y="263" width="313" height="55"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="WEP-b0-0dP"/>
@@ -49,14 +49,14 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="8Au-74-wJe" secondAttribute="bottom" id="0dZ-Lz-Qtg"/>
+                    <constraint firstAttribute="bottom" secondItem="8Au-74-wJe" secondAttribute="bottom" constant="5" id="0dZ-Lz-Qtg"/>
                     <constraint firstItem="8Au-74-wJe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="F5U-pG-eyy"/>
-                    <constraint firstItem="8Au-74-wJe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="WIs-uN-NRL"/>
+                    <constraint firstItem="8Au-74-wJe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="WIs-uN-NRL"/>
                     <constraint firstAttribute="trailing" secondItem="8Au-74-wJe" secondAttribute="trailing" id="jLT-Lg-EyC"/>
                 </constraints>
                 <userDefinedRuntimeAttributes>
                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                        <integer key="value" value="15"/>
+                        <integer key="value" value="30"/>
                     </userDefinedRuntimeAttribute>
                     <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
                 </userDefinedRuntimeAttributes>
